@@ -1,0 +1,65 @@
+{
+  "resultados": [{
+    "address_components": [{
+      "long_name": "1600",
+      "short_name": "1600"
+
+    },
+      {
+        "long_name": "Amphitheatre Parkway",
+        "short_name": "Amphitheatre Pkwy"
+
+      },
+      {
+        "long_name": "Mountain View",
+        "short_name": "Mountain View"
+
+      },
+      {
+        "long_name": "Condado de Santa Clara",
+        "short_name": "Condado de Santa Clara"
+
+      },
+      {
+        "long_name": "Califórnia",
+        "short_name": "CA"
+
+      },
+      {
+        "long_name": "Estados Unidos",
+        "short_name": "US"
+
+      },
+      {
+        "long_name": "94043",
+        "short_name": "94043"
+
+      }
+    ],
+    "formatted_address": "1600 Amphitheatre Pkwy, Mountain View, CA 94043, EUA",
+    "geometria": {
+      "location": {
+        "lat": 37.4223098,
+        "lng": -122.0846239
+      },
+      "location_type": "ROOFTOP",
+      "janelaDeExibicao": {
+        "nordeste": {
+          "lat": 37.4236587802915,
+          "lng": -122.0832749197085
+        },
+        "sudeste": {
+          "lat": 37.4209608197085,
+          "lng": -122.0859728802915
+        }
+      }
+    },
+    "place_id": "ChIJtYuu0V25j4ARwu5e4wwRYgE",
+    "plus_code": {
+      "composite_code": "CWC8 + W5 Mountain View, Califórnia, Estados Unidos",
+      "codigo_global": "849VCWC8 + W5"
+    },
+    "types": ["street_address"]
+  }],
+  "status": "OK"
+}
