@@ -1,7 +1,9 @@
 package br.com.calindra.geolocation.geolocationService;
 
+import br.com.calindra.geolocation.geolocation.GeolocationBean;
 import br.com.calindra.geolocation.geolocation.GeolocationResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import config.GeolocationConfig;
 import config.HttpClientConfig;
 import config.RestTemplateConfig;
 import org.apache.http.client.HttpClient;
@@ -26,14 +28,14 @@ public class GeolocationService {
 
     private static final Logger logger = LoggerFactory.getLogger(GeolocationService.class);
 
-    public GeolocationResponse obterGeolocation(){
+
+    public GeolocationResponse obterGeolocation(String address, String key){
         GeolocationResponse response = new GeolocationResponse();
-        String json= null;
+        String json;
         Date dateInit = new Date();
         try {
-            String url = "https://maps.googleapis.com/maps/api/geocode/" +
-                    "json?address=1600+Amphitheatre+Parkway,"+
-                    "+Mountain+View,+CA&key=AIzaSyADxZ2DfcGkasFIjsXIL6RgT5kJIYzqokw";
+            String url = "https://maps.googleapis.com/maps/api/geocode/json?address="+
+                         address.replace(" ", "+") + "&key=" + key;
             HttpClient httpClient = new DefaultHttpClient();
             HttpGet request = new HttpGet(url);
             InputStream in = httpClient.execute(request).getEntity()

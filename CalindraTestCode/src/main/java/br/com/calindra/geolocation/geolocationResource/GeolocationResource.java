@@ -1,15 +1,15 @@
 package br.com.calindra.geolocation.geolocationResource;
 
+import br.com.calindra.geolocation.geolocation.GeolocationBean;
 import br.com.calindra.geolocation.geolocation.GeolocationResponse;
 import br.com.calindra.geolocation.geolocationService.GeolocationService;
+import config.GeolocationConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -24,14 +24,15 @@ public class GeolocationResource {
     GeolocationService geolocationService;
 
 
-    @GetMapping(value = "/location", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<GeolocationResponse> resourceSearch(){
+    @GetMapping(value = "/location", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<GeolocationResponse> resourceSearch(@RequestParam(value="address", required = false) String address){
         GeolocationResponse response = new GeolocationResponse();
         Date dateInit = new Date();
+        GeolocationConfig geolocationConfig = new GeolocationConfig();
         try{
 
 
-             response =  geolocationService.obterGeolocation();
+             response =  geolocationService.obterGeolocation(address, geolocationConfig.getKey_code());
 
 
         }catch(Exception ex){
